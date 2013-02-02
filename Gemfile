@@ -1,26 +1,51 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
+gem 'bootstrap-sass', '2.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+group :development, :test do
+  gem 'sqlite3', '1.3.5'
+  gem 'pg', '0.12.2'
+  gem 'factory_girl_rails','~>1.6.0'
+  gem 'valid_attribute'
+  gem 'guard-rspec', '0.5.5'
+  gem 'launchy'
+  gem 'database_cleaner'
+  gem 'rspec-rails', '2.9.0'
+  gem 'capybara', '1.1.2'
+  gem 'rb-inotify', '0.8.8'
+  gem 'libnotify', '0.5.9'
+  gem 'guard-spork', '0.3.2'
+  gem 'spork', '0.9.0'
+end
 
+gem 'json'
+gem 'libv8', '3.11.8'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails', '3.2.5'
+  gem 'coffee-rails', '3.2.2'
+  gem 'uglifier', '>= 1.2.3'
 end
 
-gem 'jquery-rails'
+#group :production do
+#end
+
+gem 'execjs'
+gem 'therubyracer', :platforms => :ruby, :require => 'v8'
+
+gem 'formtastic', '~> 2.0.0'
+gem 'haml', '~> 3.1.0'
+gem 'inherited_resources', '~> 1.3.0'
+gem 'brazilian-rails', '~>3.0.0'
+gem 'cocoon', '~>1.0.0'
+
+gem 'jquery-rails', '2.0.2'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -35,4 +60,4 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+# gem 'ruby-debug'
