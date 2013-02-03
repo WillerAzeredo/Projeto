@@ -13,69 +13,73 @@ describe "StaticPages" do
   let(:base_title) { "Aprendendo Ruby on Rails" }
 
   describe "Home page" do
+    before { visit root_path }
     it "should have the content 'Página Inicial'" do
-      visit '/static_pages/home'
+      #visit home_path
       page.should have_content('Página Inicial')
     end
     
     it "should have the title 'Página Inicial'" do
-      visit '/static_pages/home'
+      #visit home_path
       page.should have_selector('title', :text => "#{base_title} | Página Inicial")
     end
     
     it "should not have a custom page title" do
-      visit '/static_pages/home'
+      #visit home_path
       page.should_not have_selector('title', :text => 'Principal')
     end
   end
 
   describe "Help page" do
+    before { visit help_path }
     it "should have the content 'Ajuda'" do
-      visit '/static_pages/help'
+      #visit help_path
       page.should have_content('Ajuda')
     end
 
     it "should have the title 'Ajuda'" do
-      visit '/static_pages/help'
+      #visit help_path
       page.should have_selector('title', :text => "#{base_title} | Ajuda")
     end
 
     it "should not have a custom page title" do
-      visit '/static_pages/help'
+      #visit help_path
       page.should_not have_selector('title', :text => 'Principal')
     end
   end
 
   describe "About page" do
+    before { visit about_path }
     it "should have the content 'Sobre Nós'" do
-      visit '/static_pages/about'
+      #visit about_path
       page.should have_content('Sobre Nós')
     end
 
     it "should have the title 'Sobre Nós'" do
-      visit '/static_pages/about'
+      #visit about_path
       page.should have_selector('title', :text => "#{base_title} | Sobre Nós")
     end
 
     it "should not have a custom page title" do
-      visit '/static_pages/about'
+      # visit about_path
       page.should_not have_selector('title', :text => 'Principal')
     end
   end
 
   describe "Contact page" do
+    before { visit contact_path }
     it "should have the content 'Contato'" do
-      visit '/static_pages/contact'
+      #visit contact_path
       page.should have_content('Contato')
     end
 
     it "should have the title 'Contato'" do
-      visit '/static_pages/contact'
+      #visit contact_path
       page.should have_selector('title', :text => "#{base_title} | Contato")
     end
 
     it "should not have a custom page title" do
-      visit '/static_pages/contact'
+      #visit contact_path
       page.should_not have_selector('title', :text => 'Principal')
     end
   end

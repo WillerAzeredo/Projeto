@@ -8,24 +8,13 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <%= render 'layouts/shim' %>
   </head>
   <body>
-  <header class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <%= link_to "sample app", '#', id: "logo" %>
-        <nav>
-          <ul class="nav pull-right">
-            <li><%= link_to "Página Inicial", '#' %></li>
-            <li><%= link_to "Ajuda",          '#' %></li>
-            <li><%= link_to "Entrar",         '#' %></li>
-         </ul>
-        </nav>
-      </div>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <%= yield %>
+      <%= render 'layouts/footer' %>
     </div>
-  </header>
-  <div class="container">
-    <%= yield %>
-  </div>
   </body>
 </html>

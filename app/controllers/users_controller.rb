@@ -1,2 +1,4 @@
-class UsersController < InheritedResources::Base
+class UsersController < ApplicationController
+  def new
+  end
 end
