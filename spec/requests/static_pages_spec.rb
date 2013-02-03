@@ -3,17 +3,25 @@
 require 'spec_helper'
 
 describe "StaticPages" do
-#  describe "GET /static_pages" do
-#    it "works! (now write some real specs)" do
-#      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-#      get static_pages_index_path
-#      response.status.should be(200)
-#    end
-#  end
+
+  subject { page }
+
+  shared_examples_for "all static pages" do
+    it { should have_selector('h1', text: heading) }
+    it { should have_selector('title', text: full_title(page_title)) }
+  end
+
   let(:base_title) { "Aprendendo Ruby on Rails" }
 
   describe "Home page" do
+
     before { visit root_path }
+    
+    let(:heading) { 'Página Inicial' }
+    let(:page_title) { '' }
+
+    it_should_behave_like "all static pages"
+    
     it "should have the content 'Página Inicial'" do
       #visit home_path
       page.should have_content('Página Inicial')
@@ -27,6 +35,21 @@ describe "StaticPages" do
     it "should not have a custom page title" do
       #visit home_path
       page.should_not have_selector('title', :text => 'Principal')
+    end
+    
+    it "should have the right links on the layout" do
+      visit root_path
+      click_link "Sobre Nós"
+      page.should have_selector 'title', text: full_title('Sobre Nós')
+      click_link "Ajuda"
+      page.should # fill in
+      click_link "Contato"
+      page.should # fill in
+      click_link "Página Inicial"
+      click_link "Sign up now!"
+      page.should # fill in
+      click_link "Apredendo RubyOnRails"
+      page.should # fill in
     end
   end
 
@@ -83,5 +106,4 @@ describe "StaticPages" do
       page.should_not have_selector('title', :text => 'Principal')
     end
   end
-
 end
