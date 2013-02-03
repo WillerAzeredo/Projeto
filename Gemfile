@@ -8,7 +8,6 @@ gem 'bootstrap-sass', '2.0.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
-  gem 'pg', '0.12.2'
   gem 'factory_girl_rails','~>1.6.0'
   gem 'valid_attribute'
   gem 'guard-rspec', '0.5.5'
@@ -22,6 +21,13 @@ group :development, :test do
   gem 'spork', '0.9.0'
 end
 
+group :production do
+  gem 'thin'
+  gem 'pg', '0.12.2'
+  gem 'therubyracer', :platforms => :ruby, :require => 'v8'
+  # gem 'therubyracer-heroku'
+end
+
 gem 'json'
 gem 'libv8', '3.11.8'
 
@@ -33,11 +39,7 @@ group :assets do
   gem 'uglifier', '>= 1.2.3'
 end
 
-#group :production do
-#end
-
 gem 'execjs'
-gem 'therubyracer', :platforms => :ruby, :require => 'v8'
 
 gem 'formtastic', '~> 2.0.0'
 gem 'haml', '~> 3.1.0'
