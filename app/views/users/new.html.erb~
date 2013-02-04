@@ -1,5 +1,22 @@
 <% provide(:title, 'Entrar') %>
 <title><%= full_title(yield(:title)) %></title>
 <h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Sign up</h1>
+<div class="row">
+  <div class="span6 offset3">
+    <%= render 'shared/error_messages' %>
+    <%= form_for(@user) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      <%= f.label :password_confirmation, "Confirma" %>
+      <%= f.password_field :password_confirmation %>
+      <%= f.submit "Criar Minha Conta", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
 
+<p>Find me in app/views/users/new.html.erb</p>
